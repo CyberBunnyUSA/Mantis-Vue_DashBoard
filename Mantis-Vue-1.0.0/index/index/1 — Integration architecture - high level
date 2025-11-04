@@ -1,0 +1,12 @@
+[ETL + Notebooks]  ---> data/processed/*.parquet, dashboard_output/*.json, charts/*.html
+        |
+   Backend API (FastAPI)
+        |-- /api/kpis            # returns KPI JSON
+        |-- /api/sector/{id}     # sector data
+        |-- /api/company/{ticker}# company data + signals
+        |-- /api/chart/{name}    # Vega-Lite spec or HTML chart
+        |-- /static/charts/...   # saved chart HTML for embed
+        |
+[Mantis-Vue_DashBoard (frontend)] -- fetch /api/*, render cards/charts
+        |
+[Build] -> static bundle (dist/) -> Upload to Google Drive or host on cloud
